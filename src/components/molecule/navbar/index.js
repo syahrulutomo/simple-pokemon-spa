@@ -5,7 +5,7 @@ import {
   StyledLogo,
   StyledPokeballContainer,
   StyledPokeball,
-  StyledNavbarContainer
+  StyledNavbarContainer,
 } from "./styled";
 import logo from "../../../assets/Pokemon-logo.webp";
 import Pokeball from "../../../assets/pokeball.webp";

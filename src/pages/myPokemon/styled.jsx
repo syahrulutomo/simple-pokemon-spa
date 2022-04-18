@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { colors } from "../../constants";
+import {Button} from "../../components/atom/button";
 
 const {green} = colors
 
@@ -16,3 +17,8 @@ export const StyledText = styled.p`
   line-height: 32px;
   margin: 0;
 `;
+
+export const StyledCardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`

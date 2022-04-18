@@ -80,7 +80,7 @@ export const Details = () => {
        * if true, check if the given nickname === any of owned pokemon's nickname. if true, show error alert. if no, save the object in localstorage
        * show the success alert
        * refresh the page
-       */ 
+       */
       if (localStorage.getItem("pokemon")) {
         let myPokemons = JSON.parse(localStorage.getItem("pokemon"));
 
@@ -93,16 +93,16 @@ export const Details = () => {
         ) {
           setCustomError({message: "Nickname is already exist!"});
         } else {
-          myPokemons.list = [...myPokemons.list, dataObject];
-          localStorage.setItem("pokemon", JSON.stringify(myPokemons));
-          setCustomSuccess({message: `${name} has been caught!`});
-          setIsModalShow(false);
-          setTimeout(() => {
-            navigate(0);
-          }, FIVE_SECONDS);
+            myPokemons.list = [...myPokemons.list, dataObject];
+            localStorage.setItem("pokemon", JSON.stringify(myPokemons));
+            setCustomSuccess({message: `${name} has been caught!`});
+            setIsModalShow(false);
+            setTimeout(() => {
+              navigate(0);
+            }, FIVE_SECONDS);
+          }
         }
-      }
-      // if data is not stored in localstorage yet, simply create new object and save it 
+      // if data is not stored in localstorage yet, simply create new object and save it
       else {
         const pokemon = {
           list: [dataObject],
@@ -168,7 +168,12 @@ export const Details = () => {
     <Layout error={customError} success={customSuccess} loading={isLoading}>
       {data ? (
         <StyledDetailContainer>
-          <StyledImage src={data.pokemon.sprites.front_default} alt={capitalize(data.pokemon.name)} width="150" height="150" />
+          <StyledImage
+            src={data.pokemon.sprites.front_default}
+            alt={capitalize(data.pokemon.name)}
+            width="150"
+            height="150"
+          />
           <StyledTitle>{capitalize(data.pokemon.name)}</StyledTitle>
           <StyledTypeContainer>
             {data.pokemon.types.map((it, index) => (

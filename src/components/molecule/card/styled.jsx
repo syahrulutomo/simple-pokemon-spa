@@ -4,6 +4,7 @@ import { colors } from "../../../constants/colors";
 const { white, grey, lightblue, blue } = colors;
 
 export const StyledCard = styled.div`
+  position: relative;
   border: 1px solid ${grey};
   padding: 8px;
   border-radius: 5px;

@@ -7,8 +7,8 @@ import {
   StyledPokeball,
   StyledNavbarContainer
 } from "./styled";
-import logo from "../../../assets/Pokemon-logo.png";
-import Pokeball from "../../../assets/pokeball.png";
+import logo from "../../../assets/Pokemon-logo.webp";
+import Pokeball from "../../../assets/pokeball.webp";
 
 export const Navbar = () => {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ export const Navbar = () => {
       <StyledNavbarContainer>
         <StyledLogo onClick={handleClickLogo} src={logo} alt="logo" />
         <StyledPokeballContainer onClick={handleClickOwned} owned={totalOwned}>
-          <StyledPokeball src={Pokeball} />
+          <StyledPokeball src={Pokeball} alt="pokeball icon" />
         </StyledPokeballContainer>
       </StyledNavbarContainer>
     </StyledNavbar>

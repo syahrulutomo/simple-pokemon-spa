@@ -31,6 +31,8 @@ export const Details = () => {
   const [catchValue, setCatchValue] = useState(0);
   const [nickname, setNickname] = useState(null);
 
+  const TWO_SECONDS = 2000;
+  const FIVE_SECONDS = 4000;
   const gqlVariables = {
     name,
   };
@@ -40,9 +42,20 @@ export const Details = () => {
   });
 
   const handleClickCatch = () => {
+    /**
+     * Generate random value
+     * then show the loader
+     */
     setCatchValue(Math.random());
     setIsLoading(true);
-    console.log(catchValue);
+
+    /**
+     * in 2 seconds
+     * close the loader
+     * if generated value more than 0.5
+     * then show modal
+     * if not, show the error alert
+     */
     setTimeout(() => {
       setIsLoading(false);
       if (catchValue > 0.5) {
@@ -50,20 +63,27 @@ export const Details = () => {
       } else {
         setCustomError({message: `Fret not! you fail to catch ${name}`});
       }
-    }, 2000);
+    }, TWO_SECONDS);
   };
 
   const handleClickGiveNickname = () => {
+    // validate if nickname is note empty string
     if (nickname) {
+      // the object to be stored in localstorage
       const dataObject = {
         nickname: nickname,
         pokemon: name,
         image: data.pokemon.sprites.front_default,
       };
+      /**
+       * check if data is stored in localstorage yet
+       * if true, check if the given nickname === any of owned pokemon's nickname. if true, show error alert. if no, save the object in localstorage
+       * show the success alert
+       * refresh the page
+       */ 
       if (localStorage.getItem("pokemon")) {
         let myPokemons = JSON.parse(localStorage.getItem("pokemon"));
 
-        console.log(myPokemons, nickname);
         if (
           myPokemons.list.some(
             (it) =>
@@ -79,9 +99,11 @@ export const Details = () => {
           setIsModalShow(false);
           setTimeout(() => {
             navigate(0);
-          }, 5000);
+          }, FIVE_SECONDS);
         }
-      } else {
+      }
+      // if data is not stored in localstorage yet, simply create new object and save it 
+      else {
         const pokemon = {
           list: [dataObject],
         };
@@ -93,7 +115,6 @@ export const Details = () => {
   };
 
   const handleChangeNickname = (e) => {
-    console.log(e.target.value);
     setNickname(e.target.value);
   };
 
@@ -109,19 +130,24 @@ export const Details = () => {
     setCustomError(error);
   }, [error]);
 
+  // clear toast. hide toast after showed
   useEffect(() => {
     if (customError) {
       setTimeout(() => {
         setCustomError(null);
-      }, 4000);
+      }, FIVE_SECONDS);
     }
     if (customSuccess) {
       setTimeout(() => {
         setCustomSuccess(null);
-      }, 4000);
+      }, FIVE_SECONDS);
     }
   }, [customError, customSuccess]);
 
+  /**
+   * if data from gql is ready, prepare it to populate table
+   * set the header too
+   */
   useEffect(() => {
     if (data) {
       setTableData(data.pokemon.moves.slice(0, 12));
@@ -142,7 +168,7 @@ export const Details = () => {
     <Layout error={customError} success={customSuccess} loading={isLoading}>
       {data ? (
         <StyledDetailContainer>
-          <StyledImage src={data.pokemon.sprites.front_default} />
+          <StyledImage src={data.pokemon.sprites.front_default} alt={capitalize(data.pokemon.name)} width="150" height="150" />
           <StyledTitle>{capitalize(data.pokemon.name)}</StyledTitle>
           <StyledTypeContainer>
             {data.pokemon.types.map((it, index) => (

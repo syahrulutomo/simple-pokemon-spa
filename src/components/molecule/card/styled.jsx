@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { colors } from "../../../constants/colors";
 
-const { white, grey, black, lightblue, blue } = colors;
+const { white, grey, lightblue, blue } = colors;
 
 export const StyledCard = styled.div`
   border: 1px solid ${grey};

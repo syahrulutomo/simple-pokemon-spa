@@ -4,12 +4,19 @@ import { List } from "../../components/organism/cardList";
 import { useQuery } from "@apollo/client";
 import { Layout } from "../../components/template/layout";
 import { QUERY_POKEMON_LIST } from "../../query/pokemonList";
+import {
+  setData
+} from '../../store/data/actions';
+import { useSelector, useDispatch } from 'react-redux';
 
-export default function Home() {
-  const [pokemons, setPokemons] = useState([]);
+export const Home = () => {
+  const dispatch = useDispatch();
+
+  const allData = useSelector((state) => state.dataReducer.allData);
+  const [limit, setLimit] = useState(20);
 
   const gqlVariables = {
-    limit: 20,
+    limit: limit,
     offset: 0,
   };
 
@@ -19,15 +26,28 @@ export default function Home() {
 
   useEffect(() => {
     if (!loading) {
-      setPokemons(data.pokemons.results);
+      dispatch(setData(data.pokemons.results))
     }
-  }, [loading, data]);
+  }, [loading, data, dispatch]);
+
+  window.onscroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop ===
+      document.documentElement.offsetHeight
+    ) {
+      setLimit(limit + 20);
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "auto",
+      });
+    }
+  };
 
   return (
-    <Layout error={error} loading={loading}>
+    <Layout error={error}>
       <List>
-        {!loading
-          ? pokemons.map((it) => (
+        {allData
+          ? allData.map((it) => (
               <Card
                 key={String(it.name).concat(it.image)}
                 name={it.name}
@@ -36,6 +56,7 @@ export default function Home() {
             ))
           : null}
       </List>
+      <div id="bottom" />
     </Layout>
   );
 }

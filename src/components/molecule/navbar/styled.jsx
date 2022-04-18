@@ -11,9 +11,16 @@ export const StyledNavbar = styled.nav`
   top: 0;
   left: 0;
   margin-bottom: 16px;
+  background-color: ${red};
+`;
+
+export const StyledNavbarContainer = styled.div`
+  max-width: 900px;
+  min-width: 250px;
   display: flex;
   justify-content: center;
-  background-color: ${red};
+  position: relative;
+  margin: auto;
 `;
 
 export const StyledLogo = styled.img`
@@ -29,9 +36,9 @@ export const StyledPokeballContainer = styled.div`
   transform: translateY(-50%);
 
   &:before {
-    content: "${(props) => (props.owned ? props.owned : "")}";
-    width: 14px;
-    height: 14px;
+    content: "${(props) => (props.owned > 0 ? props.owned : "")}";
+    width: ${(props) => (props.owned > 0 ? "14px" : "0px")};
+    height: ${(props) => (props.owned > 0 ? "14px" : "0px")};
     background-color: ${grey};
     border-radius: 50%;
     position: absolute;

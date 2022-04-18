@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledInput } from "./styled";
 
-export const Input = () => {
-  return <StyledInput placeholder="Nickname" />;
+export const Input = ({ onChange }) => {
+  return <StyledInput placeholder="Nickname" onChange={onChange} />;
 };

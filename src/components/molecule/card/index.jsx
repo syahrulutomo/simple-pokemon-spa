@@ -1,9 +1,9 @@
 import React from "react";
-import { StyledCard, StyledTitle } from "./styled";
-import { capitalize } from "../../../utils/capitalize";
-import { useNavigate } from "react-router-dom";
+import {StyledCard, StyledTitle} from "./styled";
+import {capitalize} from "../../../utils/capitalize";
+import {useNavigate} from "react-router-dom";
 
-export const Card = ({ name, image }) => {
+export const Card = ({name, image, children}) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -12,8 +12,9 @@ export const Card = ({ name, image }) => {
 
   return (
     <StyledCard onClick={handleClick}>
-      <img src={image} alt="ivysaur" />
+      <img src={image} alt={name} />
       <StyledTitle>{name ? capitalize(name) : null}</StyledTitle>
+      {children}
     </StyledCard>
   );
 };

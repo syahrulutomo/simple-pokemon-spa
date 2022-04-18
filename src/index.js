@@ -3,14 +3,18 @@ import ReactDOM from "react-dom/client";
 import Routes from "./routes";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
-import { ApolloProvider } from "@apollo/client";
-import { client } from "./configs/apollo";
+import {ApolloProvider} from "@apollo/client";
+import {client} from "./configs/apollo";
+import { store } from "./store";
+import {Provider} from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ApolloProvider client={client}>
     <React.StrictMode>
-      <Routes />
+      <Provider store={store}>
+        <Routes />
+      </Provider>
     </React.StrictMode>
   </ApolloProvider>
 );

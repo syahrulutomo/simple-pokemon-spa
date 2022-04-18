@@ -1,9 +1,9 @@
 import React from "react";
 import { StyledToast } from "./styled";
 
-export const Toast = ({ message }) => {
+export const Toast = ({ theme, message }) => {
   return (
-    <StyledToast>
+    <StyledToast theme={theme}>
       <span>{message}</span>
     </StyledToast>
   );

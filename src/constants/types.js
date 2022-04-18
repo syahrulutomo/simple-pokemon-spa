@@ -1,0 +1,17 @@
+export const types = {
+  grass: "grass",
+  fire: "fire",
+  water: "water",
+  bug: "bug",
+  normal: "normal",
+  poison: "poison",
+  electric: "electric",
+  ground: "ground",
+  fairy: "fairy",
+  fighting: "fighting",
+  psychic: "psychic",
+  rock: "rock",
+  ghost: "ghost",
+  ice: "ice",
+  dragon: "dragon",
+};

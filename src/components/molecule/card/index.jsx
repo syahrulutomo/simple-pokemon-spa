@@ -1,32 +1,19 @@
 import React from "react";
-import {
-  StyledCard,
-  StyledTitle,
-  StyledTypeContainer,
-  StyledType,
-} from "./styled";
-import Ivysaur from "../../../assets/ivysaur.png";
+import { StyledCard, StyledTitle } from "./styled";
+import { capitalize } from "../../../utils/capitalize";
+import { useNavigate } from "react-router-dom";
 
-export const Card = () => {
-  function setTypeColor(type) {
-    switch (type) {
-      case "grass":
-        return "green";
-      case "poison":
-        return "purple";
-      default:
-        return "black";
-    }
-  }
+export const Card = ({ name, image }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/details/${name}`);
+  };
 
   return (
-    <StyledCard>
-      <img src={Ivysaur} alt="ivysaur" />
-      <StyledTitle>Bulbasaur</StyledTitle>
-      <StyledTypeContainer>
-        <StyledType color={setTypeColor("grass")}>Grass</StyledType>
-        <StyledType color={setTypeColor("poison")}>Poison</StyledType>
-      </StyledTypeContainer>
+    <StyledCard onClick={handleClick}>
+      <img src={image} alt="ivysaur" />
+      <StyledTitle>{name ? capitalize(name) : null}</StyledTitle>
     </StyledCard>
   );
 };

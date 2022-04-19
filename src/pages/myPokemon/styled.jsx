@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { colors } from "../../constants";
-import {Button} from "../../components/atom/button";
 
 const {green} = colors
 

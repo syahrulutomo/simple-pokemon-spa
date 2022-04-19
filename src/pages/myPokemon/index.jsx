@@ -42,8 +42,8 @@ const MyPokemons = () => {
     <Layout>
       <StyledTitle>My Pokemons:</StyledTitle>
       <List style={{ maxWidth: '900px' }}>
-        {listOwned
-          ? listOwned.map((it) => (
+        {localData
+          ? JSON.parse(localData).list.map((it) => (
               <StyledCardContainer key={it.nickname}>
                 <Card name={it.pokemon} image={it.image}>
                   <StyledText>{it.nickname}</StyledText>

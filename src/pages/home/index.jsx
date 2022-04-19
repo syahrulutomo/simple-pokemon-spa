@@ -32,14 +32,10 @@ const Home = () => {
 
   const handleScroll = () => {
     if (
-      window.innerHeight + document.documentElement.scrollTop ===
+      window.innerHeight + document.documentElement.scrollTop >=
       document.documentElement.offsetHeight
     ) {
       setLimit(limit + 20);
-      window.scrollTo({
-        top: document.documentElement.scrollHeight,
-        behavior: "auto",
-      });
     }
   }
 

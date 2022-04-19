@@ -22,7 +22,9 @@ const MyPokemons = () => {
         setLocalData(JSON.stringify({list: []}));
         localStorage.setItem("pokemon", JSON.stringify({list: []}));
       } else {
-        const newPokemonList = JSON.parse(localData).list.splice(index, 1);
+        const beginArr = json.list.slice(0, index);
+        const endArr = json.list.slice(index+1, json.list.length);
+        const newPokemonList = beginArr.concat(endArr);
         setLocalData(JSON.stringify({list: newPokemonList}));
         localStorage.setItem("pokemon", JSON.stringify({list: newPokemonList}));
       }

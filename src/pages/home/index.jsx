@@ -30,7 +30,7 @@ const Home = () => {
     }
   }, [loading, data, dispatch]);
 
-  window.onscroll = () => {
+  const handleScroll = () => {
     if (
       window.innerHeight + document.documentElement.scrollTop ===
       document.documentElement.offsetHeight
@@ -41,7 +41,10 @@ const Home = () => {
         behavior: "auto",
       });
     }
-  };
+  }
+
+  window.onscroll = handleScroll;
+  document.ontouchmove = handleScroll;
 
   return (
     <Layout error={error}>

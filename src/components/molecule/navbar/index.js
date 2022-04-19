@@ -30,7 +30,7 @@ export const Navbar = () => {
   }, [localData]);
 
   return (
-    <StyledNavbar>
+    <StyledNavbar data-testid="navbar">
       <StyledNavbarContainer>
         <StyledLogo onClick={handleClickLogo} src={logo} alt="logo" />
         <StyledPokeballContainer onClick={handleClickOwned} owned={totalOwned}>

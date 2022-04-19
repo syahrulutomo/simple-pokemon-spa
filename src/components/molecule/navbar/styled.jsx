@@ -12,6 +12,7 @@ export const StyledNavbar = styled.nav`
   left: 0;
   margin-bottom: 16px;
   background-color: ${red};
+  z-index: 999;
 `;
 
 export const StyledNavbarContainer = styled.div`
@@ -27,6 +28,9 @@ export const StyledLogo = styled.img`
   width: 75px;
   height: 32px;
   object-fit: contain;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const StyledPokeballContainer = styled.div`
@@ -51,6 +55,10 @@ export const StyledPokeballContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 `;
 

@@ -6,7 +6,7 @@ export const Loader = () => {
   return (
     <>
       <Overlay />
-      <StyledLoader />
+      <StyledLoader data-testid="styled-loader" />
     </>
   );
 };

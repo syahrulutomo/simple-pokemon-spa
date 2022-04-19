@@ -16,6 +16,7 @@ export const StyledCard = styled.div`
 
   &:hover {
     border-color: ${lightblue};
+    cursor: pointer;
   }
 `;
 

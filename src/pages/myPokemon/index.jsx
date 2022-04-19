@@ -41,7 +41,7 @@ export const MyPokemons = () => {
   return (
     <Layout>
       <StyledTitle>My Pokemons:</StyledTitle>
-      <List>
+      <List style={{ maxWidth: '900px' }}>
         {listOwned
           ? listOwned.map((it) => (
               <StyledCardContainer key={it.nickname}>

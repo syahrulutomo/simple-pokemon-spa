@@ -6,7 +6,7 @@ export const Modal = ({ children }) => {
   return (
     <>
       <Overlay />
-      <StyledModal>{children}</StyledModal>
+      <StyledModal data-testid="modal">{children}</StyledModal>
     </>
   );
 };

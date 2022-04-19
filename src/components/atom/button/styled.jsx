@@ -12,4 +12,7 @@ export const StyledButton = styled.button`
   outline: none;
   border: 1px solid ${red};
   letter-spacing: 0.5px;
+  &:hover {
+    cursor: pointer;
+  }
 `;

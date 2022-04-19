@@ -13,7 +13,7 @@ export const Home = () => {
   const dispatch = useDispatch();
 
   const allData = useSelector((state) => state.dataReducer.allData);
-  const [limit, setLimit] = useState(20);
+  const [limit, setLimit] = useState(32);
 
   const gqlVariables = {
     limit: limit,

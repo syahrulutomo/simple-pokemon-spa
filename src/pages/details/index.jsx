@@ -150,7 +150,7 @@ export const Details = () => {
    */
   useEffect(() => {
     if (data) {
-      setTableData(data.pokemon.moves.slice(0, 12));
+      setTableData(data.pokemon.moves.slice(0, 12).map((it, index) => { return { no: index+1, move:  it.move.name}}));
     }
     setTableHeader([
       {

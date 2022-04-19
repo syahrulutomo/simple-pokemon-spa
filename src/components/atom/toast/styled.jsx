@@ -11,7 +11,7 @@ const show = keyframes`
 
 export const StyledToast = styled.div`
   position: fixed;
-  z-index: 999;
+  z-index: 1000;
   min-width: 250px;
   top: 70px;
   left: 50%;

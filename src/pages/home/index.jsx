@@ -44,7 +44,7 @@ const Home = () => {
   }
 
   window.onscroll = handleScroll;
-  document.ontouchmove = handleScroll;
+  window.ontouchmove = handleScroll;
 
   return (
     <Layout error={error}>

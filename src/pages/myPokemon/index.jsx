@@ -5,7 +5,7 @@ import {List} from "../../components/organism/cardList";
 import {StyledTitle, StyledText, StyledCardContainer} from "./styled";
 import {Button} from "../../components/atom/button";
 
-export const MyPokemons = () => {
+const MyPokemons = () => {
   const [localData, setLocalData] = useState(localStorage.getItem("pokemon"));
   const [listOwned, setListOwned] = useState(0);
 
@@ -58,3 +58,5 @@ export const MyPokemons = () => {
     </Layout>
   );
 };
+
+export default MyPokemons

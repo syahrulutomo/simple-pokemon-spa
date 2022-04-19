@@ -19,7 +19,7 @@ import {Input} from "../../components/atom/input";
 import {Button} from "../../components/atom/button";
 import {QUERY_POKEMON_DETAIL} from "../../query/pokemonDetail";
 
-export const Details = () => {
+const Details = () => {
   const {name} = useParams();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -207,3 +207,5 @@ export const Details = () => {
     </Layout>
   );
 };
+
+export default Details

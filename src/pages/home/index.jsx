@@ -9,7 +9,7 @@ import {
 } from '../../store/data/actions';
 import { useSelector, useDispatch } from 'react-redux';
 
-export const Home = () => {
+const Home = () => {
   const dispatch = useDispatch();
 
   const allData = useSelector((state) => state.dataReducer.allData);
@@ -60,3 +60,5 @@ export const Home = () => {
     </Layout>
   );
 }
+
+export default Home

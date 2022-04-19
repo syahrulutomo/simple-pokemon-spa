@@ -1,6 +1,6 @@
 # Simple Pokemon SPA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). You can visit on [Simple Pokemon SPA]()
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). You can visit on [Simple Pokemon SPA](https://simple-pokemon-spa.netlify.app/)
 
 ## Available Scripts
 In the project directory, you can run:
@@ -34,7 +34,7 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 ## Live app
-[Simple Pokemon SPA]()
+[Simple Pokemon SPA](https://simple-pokemon-spa.netlify.app/)
 
 ## Tech Stack
 * Create React App
